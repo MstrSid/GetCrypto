@@ -12,8 +12,7 @@
         <action
             android:id="@+id/action_coinPriceListFragment_to_coinDetailFragment"
             app:destination="@id/coinDetailFragment"
-            app:launchSingleTop="false"
-            app:popUpTo="@id/nav_graph" />
+            app:launchSingleTop="false" />
     </fragment>
     <fragment
         android:id="@+id/coinDetailFragment"

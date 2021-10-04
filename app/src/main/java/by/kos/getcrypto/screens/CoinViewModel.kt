@@ -19,6 +19,7 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
     private val db = AppDatabase.getInstance(application)
     val priceList = db.coinPriceInfoDao().getPriceList()
     private val compositeDisposable = CompositeDisposable()
+    var sendFSymbol: String? = null
 
 
     init {

@@ -8,16 +8,19 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import by.kos.getcrypto.R
+import by.kos.getcrypto.adapters.CoinInfoAdapter
 import by.kos.getcrypto.databinding.FragmentCoinPriceListBinding
+import by.kos.getcrypto.pojo.CoinPriceInfo
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 class CoinPriceListFragment : Fragment() {
 
-    private val compositeDisposable = CompositeDisposable()
-
     private var _binding: FragmentCoinPriceListBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: CoinViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,14 +32,19 @@ class CoinPriceListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val adapter = CoinInfoAdapter(this.requireContext())
         viewModel = ViewModelProvider(this).get(CoinViewModel::class.java)
-        /*viewModel.priceList.observe(viewLifecycleOwner, Observer {
-            Log.d("TEST_LOAD_DATA", "Success: $it")
-        })*/
-        viewModel.getDetailInfo("BTC").observe(viewLifecycleOwner, Observer {
-            Log.d("TEST_LOAD_DATA", "Success: $it")
+        viewModel.priceList.observe(viewLifecycleOwner, Observer {
+            adapter.coinInfoList = it
         })
+        binding.rvCoinsPriceList.adapter = adapter
+        adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
+            override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
+                viewModel.sendFSymbol = coinPriceInfo.fromSymbol
+                findNavController().navigate(R.id.action_coinPriceListFragment_to_coinDetailFragment)
+            }
+        }
+
 
         /*binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_coinPriceListFragment_to_coinDetailFragment)

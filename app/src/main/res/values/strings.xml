@@ -9,4 +9,12 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="symbols_template">%s / %s</string>
+    <string name="last_update_template">Last updated: %s</string>
+    <string name="slash">/</string>
+    <string name="price">Price:</string>
+    <string name="daily_minimum">Daily minimum:</string>
+    <string name="daily_maximum">Daily maximum:</string>
+    <string name="last_deal">Last deal:</string>
+    <string name="updated">Updated:</string>
 </resources>
