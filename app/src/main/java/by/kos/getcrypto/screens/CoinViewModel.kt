@@ -1,4 +1,4 @@
-package by.kos.getcrypto
+package by.kos.getcrypto.screens
 
 import android.app.Application
 import android.util.Log

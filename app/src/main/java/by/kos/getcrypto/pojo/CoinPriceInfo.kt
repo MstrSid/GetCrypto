@@ -2,6 +2,8 @@ package by.kos.getcrypto.pojo
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import by.kos.getcrypto.api.ApiFactory.BASE_IMAGE_URL
+import by.kos.getcrypto.utils.convertTimestampToTime
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
@@ -34,7 +36,7 @@ data class CoinPriceInfo(
 
     @SerializedName("LASTUPDATE")
     @Expose
-    val lastUpdate: Int? = null,
+    val lastUpdate: Long? = null,
 
     @SerializedName("LASTVOLUME")
     @Expose
@@ -191,4 +193,13 @@ data class CoinPriceInfo(
     @SerializedName("IMAGEURL")
     @Expose
     val imageUrl: String? = null
-)
+) {
+
+    fun getFormattedTime(): String {
+        return convertTimestampToTime(lastUpdate)
+    }
+
+    fun getFullImageUrl(): String {
+        return BASE_IMAGE_URL + imageUrl
+    }
+}

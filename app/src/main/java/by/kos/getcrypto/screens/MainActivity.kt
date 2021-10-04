@@ -1,4 +1,4 @@
-package by.kos.getcrypto
+package by.kos.getcrypto.screens
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -9,6 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import by.kos.getcrypto.R
 import by.kos.getcrypto.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

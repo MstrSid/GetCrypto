@@ -1,4 +1,4 @@
-package by.kos.getcrypto
+package by.kos.getcrypto.screens
 
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import by.kos.getcrypto.databinding.FragmentCoinPriceListBinding
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
@@ -39,9 +38,9 @@ class CoinPriceListFragment : Fragment() {
             Log.d("TEST_LOAD_DATA", "Success: $it")
         })
 
-        binding.buttonFirst.setOnClickListener {
+        /*binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_coinPriceListFragment_to_coinDetailFragment)
-        }
+        }*/
     }
 
     override fun onDestroyView() {

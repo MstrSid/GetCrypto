@@ -6,7 +6,7 @@
     app:startDestination="@id/coinPriceListFragment">
     <fragment
         android:id="@+id/coinPriceListFragment"
-        android:name="by.kos.getcrypto.CoinPriceListFragment"
+        android:name="by.kos.getcrypto.screens.CoinPriceListFragment"
         android:label="fragment_coin_price_list"
         tools:layout="@layout/fragment_coin_price_list" >
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/coinDetailFragment"
-        android:name="by.kos.getcrypto.CoinDetailFragment"
+        android:name="by.kos.getcrypto.screens.CoinDetailFragment"
         android:label="fragment_coin_detail"
         tools:layout="@layout/fragment_coin_detail" >
         <action

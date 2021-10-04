@@ -1,4 +1,4 @@
-package by.kos.getcrypto
+package by.kos.getcrypto.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import by.kos.getcrypto.R
 import by.kos.getcrypto.databinding.FragmentCoinDetailBinding
 
 class CoinDetailFragment : Fragment() {
