@@ -32,8 +32,10 @@ class CoinPriceListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(CoinViewModel::class.java)
-        viewModel.loadData()
-        viewModel.priceList.observe(viewLifecycleOwner, Observer {
+        /*viewModel.priceList.observe(viewLifecycleOwner, Observer {
+            Log.d("TEST_LOAD_DATA", "Success: $it")
+        })*/
+        viewModel.getDetailInfo("BTC").observe(viewLifecycleOwner, Observer {
             Log.d("TEST_LOAD_DATA", "Success: $it")
         })
 
