@@ -38,7 +38,9 @@ class CoinInfoAdapter(private val context: Context) :
             with(coin) {
                 val symbolsTemplate = context.resources.getString(R.string.symbols_template)
                 val lastUpdateTemplate = context.resources.getString(R.string.last_update_template)
-                tvPrice.text = price.toString()
+                price?.let{
+                    tvPrice.text = it.toBigDecimal().toPlainString()
+                }
                 tvSymbols.text = String.format(symbolsTemplate, fromSymbol, toSymbol)
                 tvRefreshTime.text = String.format(lastUpdateTemplate, getFormattedTime())
                 Picasso.get().load(getFullImageUrl()).into(ivLogoCoin)

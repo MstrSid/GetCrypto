@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -20,7 +22,6 @@ class CoinPriceListFragment : Fragment() {
     private var _binding: FragmentCoinPriceListBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: CoinViewModel
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,15 +41,10 @@ class CoinPriceListFragment : Fragment() {
         binding.rvCoinsPriceList.adapter = adapter
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
             override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
-                viewModel.sendFSymbol = coinPriceInfo.fromSymbol
+                parentFragmentManager.setFragmentResult("result", bundleOf("fSym" to coinPriceInfo.fromSymbol))
                 findNavController().navigate(R.id.action_coinPriceListFragment_to_coinDetailFragment)
             }
         }
-
-
-        /*binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_coinPriceListFragment_to_coinDetailFragment)
-        }*/
     }
 
     override fun onDestroyView() {

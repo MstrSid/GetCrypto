@@ -12,7 +12,11 @@
         <action
             android:id="@+id/action_coinPriceListFragment_to_coinDetailFragment"
             app:destination="@id/coinDetailFragment"
-            app:launchSingleTop="false" />
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/coinDetailFragment"
@@ -21,6 +25,10 @@
         tools:layout="@layout/fragment_coin_detail" >
         <action
             android:id="@+id/action_coinDetailFragment_to_coinPriceListFragment"
-            app:destination="@id/coinPriceListFragment" />
+            app:destination="@id/coinPriceListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 </navigation>

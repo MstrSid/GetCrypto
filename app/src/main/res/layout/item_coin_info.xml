@@ -17,6 +17,8 @@
             android:id="@+id/ivLogoCoin"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@mipmap/ic_launcher" />
@@ -27,7 +29,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
