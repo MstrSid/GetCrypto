@@ -10,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.transition.TransitionInflater
 import by.kos.getcrypto.R
 import by.kos.getcrypto.databinding.FragmentCoinDetailBinding
 import com.squareup.picasso.Picasso
@@ -20,6 +21,12 @@ class CoinDetailFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var viewModel: CoinViewModel
     private var result: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val inflater = TransitionInflater.from(requireContext())
+        enterTransition = inflater.inflateTransition(R.transition.slide_right)
+    }
 
 
     override fun onCreateView(

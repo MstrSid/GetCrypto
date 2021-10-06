@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.transition.TransitionInflater
 import by.kos.getcrypto.R
 import by.kos.getcrypto.adapters.CoinInfoAdapter
 import by.kos.getcrypto.databinding.FragmentCoinPriceListBinding
@@ -22,6 +23,12 @@ class CoinPriceListFragment : Fragment() {
     private var _binding: FragmentCoinPriceListBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: CoinViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val inflater = TransitionInflater.from(requireContext())
+        exitTransition = inflater.inflateTransition(R.transition.fade)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

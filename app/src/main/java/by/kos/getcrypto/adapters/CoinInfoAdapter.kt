@@ -51,6 +51,7 @@ class CoinInfoAdapter(private val context: Context) :
         }
     }
 
+
     override fun getItemCount() = coinInfoList.size
 
     interface OnCoinClickListener {
